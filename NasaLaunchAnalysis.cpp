@@ -6,7 +6,7 @@
 
 using namespace std;
 
-// I read the assignment notes and followed their requirements.
+// I read the notes!
 
 // Extracts the UTC time from one CSV line.
 TimeCode parse_line(const string& line)
@@ -56,11 +56,11 @@ int main()
 
     TimeCode total;
 
-    // Use TimeCode's + operator as required by the assignment.
+   
     for (const TimeCode& tc : times)
         total = total + tc;
 
-    // Use TimeCode's / operator to calculate the average.
+    
     TimeCode average = total / static_cast<double>(times.size());
 
     cout << times.size() << " data points." << endl;
