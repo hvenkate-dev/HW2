@@ -15,7 +15,14 @@ TimeCode parse_line(const string& line)
     // having to parse every other CSV field.
     size_t utc = line.find(" UTC");
 
+    // Find the space immediately before the UTC time.
+    // Example: "Fri Aug 07, 2020 05:12 UTC"
+    // rfind searches backward from "UTC" and finds the space before "05:12".
     size_t timeStart = line.rfind(' ', utc - 1);
+
+    // Extract only the time between the space and " UTC".
+    // Example: from "Fri Aug 07, 2020 05:12 UTC",
+    // this extracts "05:12".
     string time = line.substr(timeStart + 1, utc - timeStart - 1);
 
     unsigned int hr;
